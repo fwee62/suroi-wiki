@@ -7,7 +7,7 @@ The Sickle is a one-handed tool used for agricultural purposes. It features a cu
 
 # Strategies
 
-- The Sickle possesses a greater attack range, so rushing another player is more advisable with this weapon
+- The Sickle possesses a greater attack range, so rushing another player even if there is a large amount of distance between you and them.
 
 ## Using
 
