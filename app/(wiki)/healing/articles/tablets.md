@@ -15,6 +15,7 @@ Tablets, also known as pills, are a solid form of oral medicine. They usually in
   - If someone starts attacking you, cancel the Tablets and start fighting (the default keybind is X).
 - If you only have 1 Tablet, it may be worth saving it until you can find another Tablet or a Cola, as then you can get the full health boost.
 - Tablets are better used to fill up the adrenaline bar, whereas Colas are ideal to "top off" your adrenaline.
+- Using tablets over cola can save time (up to 2 seconds).
 
 ## Countering
 
