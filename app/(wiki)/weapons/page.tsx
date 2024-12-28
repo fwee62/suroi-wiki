@@ -4,8 +4,48 @@ import GridTable from "@/components/tables/GridTable";
 import { getSuroiImageLink } from "@/lib/util/suroi";
 import { Guns } from "@/vendor/suroi/common/src/definitions/guns";
 import { Melees } from "@/vendor/suroi/common/src/definitions/melees";
+import { Explosions } from "@/vendor/suroi/common/src/definitions/explosions";
 import { Throwables } from "@/vendor/suroi/common/src/definitions/throwables";
 import Link from "next/link";
+import TableWithHeader from "@/components/tables/TableWithHeader";
+import { FireMode } from "@/vendor/suroi/common/src/constants";
+const dpsList: Array<[string, number, number]> = [];
+for (const gun of Guns) {
+  const explosion = Explosions.definitions.find(
+    explosion => explosion.idString === gun.ballistics.onHitExplosion
+  );
+  dpsList.push([
+    gun.name,
+    Number(gun.fireMode === FireMode.Burst
+      ? (
+        (1000
+          / (gun.burstProperties.burstCooldown
+            + gun.fireDelay * gun.burstProperties.shotsPerBurst))
+          * ((gun.ballistics.damage + (explosion?.damage ?? 0) + (explosion?.ballistics ? (explosion.ballistics.damage * explosion.shrapnelCount) : 0)) * gun.burstProperties.shotsPerBurst)
+      ).toFixed(2)
+      : (
+        (gun.ballistics.damage + (explosion?.damage ?? 0) + (explosion?.ballistics ? (explosion.ballistics.damage * explosion.shrapnelCount) : 0))
+        * (gun.bulletCount ?? 1)
+        * (1000 / gun.fireDelay)
+      ).toFixed(2)),
+    Number(gun.fireMode === FireMode.Burst
+      ? (
+        (1000
+          / (gun.burstProperties.burstCooldown
+            + gun.fireDelay * gun.burstProperties.shotsPerBurst))
+          * ((gun.ballistics.damage + (explosion?.damage ?? 0) + (explosion?.ballistics ? (explosion.ballistics.damage * explosion.shrapnelCount) : 0))
+            * gun.burstProperties.shotsPerBurst
+            * gun.ballistics.obstacleMultiplier)
+      ).toFixed(2)
+      : (
+        (gun.ballistics.damage + (explosion?.damage ?? 0) + (explosion?.ballistics ? (explosion.ballistics.damage * explosion.shrapnelCount) : 0))
+        * gun.ballistics.obstacleMultiplier
+        * (gun.bulletCount ?? 1)
+        * (1000 / gun.fireDelay)
+      ).toFixed(2))
+  ]);
+}
+dpsList.sort((a, b) => (b[1] - a[1]));
 
 export default function WeaponsPage() {
   return (
@@ -90,6 +130,23 @@ export default function WeaponsPage() {
           ))}
         </GridTable>
       </Collapsible>
+      <Collapsible
+        label={(
+          <div className="prose prose-invert">
+            <h2 id="throwables">Gun DPS Table</h2>
+          </div>
+        )}
+        className="my-4"
+      >
+        <div className="mt-4">
+          <TableWithHeader
+            header={["Gun", "DPS", "Obstacle DPS"]}
+            content={[...dpsList]}
+          />
+        </div>
+
+      </Collapsible>
+
     </main>
   );
 }

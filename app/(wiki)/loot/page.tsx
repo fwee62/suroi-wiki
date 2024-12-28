@@ -1,7 +1,6 @@
 import LootCalc from "@/components/interactive/LootCalc";
-import TableWithHeader from "@/components/tables/TableWithHeader";
-import { Loots } from "@/vendor/suroi/common/src/definitions/loots";
 import { LootTables } from "@/vendor/suroi/server/src/data/lootTables";
+import LootTable from "@/components/tables/LootTable";
 
 export default function LootPage() {
   return (
@@ -21,44 +20,36 @@ export default function LootPage() {
             Use this interactive calculator to determine the chance of an item
             dropping from an obstacle.
           </p>
+          <h3>NOTICE: The Loot Table calculator is currently broken.</h3>
         </div>
         <LootCalc />
-      </div>
-      <div>
-        {Object.entries(LootTables.normal).map(([name, tables]) => (
-          <div key={name} id={name}>
-            <TableWithHeader
-              key={name}
-              title={`Table ${name}`}
-              header={["Item", "Count", "Weight", "% Chance"]}
-              content={("loot" in tables ? (tables).loot : tables).map(table => [
-                "item" in table
-                  ? `Item ${
-                    Loots.definitions.find(
-                      loot => loot.idString === table.item
-                    )?.name
-                  }`
-                  : `Table ${table.table}`,
-                table.count ? table.count.toString() : "1",
-                table.weight,
-                `${(
-                  (table.weight
-                    / ("loot" in tables ? (tables).loot : tables).reduce((acc, table) => acc + table.weight, 0))
-                    * 100
-                ).toFixed(2)}%`
-              ])}
-            />
-          </div>
-        ))}
       </div>
       <div className="mt-8">
         <div className="prose prose-invert">
           <h2>Loot Tables</h2>
           <p>
-            These tables determine which loot tiers to use for a given obstacle.
+            These tables determine which loot tiers to use for a given obstacle. Multiple tables inside of a tier indicate that the corresponding obstacle drops a random item from each table.
           </p>
         </div>
       </div>
+      {...Object.entries(LootTables).map(([mode]) => (
+        <div key={mode} id={mode}>
+          <div className="mt-8">
+            <div className="prose prose-invert p-3">
+              <h2>{`${mode.charAt(0).toUpperCase() + mode.slice(1)} mode`}</h2>
+            </div>
+          </div>
+          {Object.entries(LootTables[mode]).map(([name, tables]) => (
+            <div key={`${name}_${mode}`} id={`${name}_${mode}`}>
+              <LootTable
+                title={name}
+                notice={Array.isArray(tables) ? "" : `This table drops ${tables.min === tables.max ? tables.min : `${tables.min}-${tables.max}`}${tables.noDuplicates ? " distinct" : ""} item${tables.max === 1 ? "" : "s"}.`}
+                content={tables}
+              />
+            </div>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

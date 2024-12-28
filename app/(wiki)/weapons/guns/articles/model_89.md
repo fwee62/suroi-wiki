@@ -16,16 +16,19 @@ The Model 89 was developed by Big Horn Armory to supersede the older Model 86 an
 - Hide behind indestructible cover such as [Oil Tanks](/obstacles/oil_tank) or [Sandbags](/obstacles/sandbags). The .50 Cal ammo that the Model 89 uses is rare, so you may be able to make your opponent run out of it by wasting it.
 
 # Obtaining
-The Model 89 can be found in Airdrop, occasionally in [Gun Lockers](/obstacles/gun_locker), and very rarely in common loot sources such as [Regular Crates](/obstacles/crates). It is more common in Harvest mode.
+The Model 89 can be found in [Regular Airdrops](/obstacles/airdrops), occasionally in [Gun Lockers](/obstacles/gun_locker), and very rarely in common loot sources such as [Regular Crates](/obstacles/crates). It is more common in Harvest mode.
 
 # Trivia
 - The Model 89 in-game is an 18" carbine with a standard walnut stock and a matte stainless steel finish.
 - The Model 89 is one of the three weapons which use .50 Cal ammunition. The other weapons which use .50 Cal rounds are the [RSh-12](/weapons/guns/rsh12) and [DEagle](/weapons/guns/deagle).
 
 ## History
+- [v0.21.0](https://github.com/HasangerGames/suroi/releases/tag/v0.21.0)
+  - Damage increased to 55 (from 49)
+  - Bullet speed increased to 0.31 (from 0.28)
 - [v0.20.1](https://github.com/HasangerGames/suroi/releases/tag/v0.20.1)
   - Reload time decreased to 0.4 (from 0.5)
-- [v0.20.1](https://github.com/HasangerGames/suroi/releases/tag/v0.20.0)
+- [v0.20.0](https://github.com/HasangerGames/suroi/releases/tag/v0.20.0)
   - Damage decreased to 49 (from 62.5)
 - [v0.19.0](https://github.com/HasangerGames/suroi/releases/tag/v0.19.0)
   - Changed ammunition type to .50 Cal from 12.7mm

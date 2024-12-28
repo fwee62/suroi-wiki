@@ -52,11 +52,14 @@ export default function MeleeSidebar({ item }: MeleeSidebarProps) {
         }
       ]}
     >
-      <InfoboxRow>
-        <InfoboxColumn title="Player Preview">
-          <PlayerHoldingMelee melee={item} skin={skin} use={false} />
-        </InfoboxColumn>
-      </InfoboxRow>
+      { /* TODO Support for rotating melee animations */ }
+      {"useRight" in item.fists && (
+        <InfoboxRow>
+          <InfoboxColumn title="Player Preview">
+            <PlayerHoldingMelee melee={item} skin={skin} use={false} />
+          </InfoboxColumn>
+        </InfoboxRow>
+      )}
       <InfoboxRow>
         <InfoboxColumn title="Damage">{item.damage}</InfoboxColumn>
         <InfoboxColumn title="Cooldown" abbr="Cooldown between hits">
@@ -83,15 +86,23 @@ export default function MeleeSidebar({ item }: MeleeSidebarProps) {
             * (1000 / item.cooldown)
           ).toFixed(2)}
         </InfoboxColumn>
-        {(item?.piercingMultiplier ?? 0) > 0 && (
-          <InfoboxColumn
-            title="Piercing Damage"
-            abbr="Damage that is applied to impenetrable (but not indestructible) obstacles such as Flint Stones"
-          >
-            x{item.piercingMultiplier} (
-            {(item.piercingMultiplier ?? 0) * item.damage})
-          </InfoboxColumn>
-        )}
+      </InfoboxRow>
+
+      <InfoboxRow>
+        <InfoboxColumn
+          title="Piercing Damage"
+          abbr="Damage that is applied to impenetrable (but not indestructible) obstacles such as Flint Stones"
+        >
+          x{item.piercingMultiplier ?? 0} (
+          {((item.piercingMultiplier ?? 0) * item.damage).toFixed(2)})
+        </InfoboxColumn>
+        <InfoboxColumn
+          title="Ice Damage"
+          abbr="Damage that is applied to frozen obstacles such as Frozen Crates"
+        >
+          x{item.iceMultiplier ?? 0} (
+          {((item.iceMultiplier ?? 0) * item.damage).toFixed(2)})
+        </InfoboxColumn>
       </InfoboxRow>
 
       <InfoboxHeader>Advanced Stats</InfoboxHeader>

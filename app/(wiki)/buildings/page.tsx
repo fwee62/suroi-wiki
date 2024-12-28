@@ -1,6 +1,6 @@
 import BuildingCard from "@/components/cards/BuildingCard";
 import GridTable from "@/components/tables/GridTable";
-import { Buildings } from "@/vendor/suroi/common/src/definitions";
+import { Buildings } from "@/vendor/suroi/common/src/definitions/buildings";
 import { BuildingMetaArticles } from "./[item]/page";
 
 const BuildingArticles: string[] = [
@@ -10,7 +10,7 @@ const BuildingArticles: string[] = [
   "small_bridge", "large_bridge", "construction_site",
   "refinery", "armory", "headquarters", "port_meta", "cargo_ship", "oil_tanker_ship",
   "small_bunker",
-  "lodge", "armory_damaged", "barn", "plumpkin_bunker",
+  "lodge", "bombed_armory", "barn", "plumpkin_bunker",
   "outhouse", "tents", "hay_sheds",
   "firework_warehouse"
 ];

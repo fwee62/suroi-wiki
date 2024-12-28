@@ -1,4 +1,4 @@
-The **AEGIS Ind. Headquarters**, or **Headquarters**, is a large structure added in the [v0.19.0](https://github.com/HasangerGames/suroi/releases/tag/v0.19.0) "High Caliber Negotiations" update on Sepetember 22nd, 2024. It contains a unique melee weapon, the [Falchion](/weapons/melee/falchion), either the [DEagle](/weapons/guns/deagle) or [RSh-12](/weapons/guns/rsh12) as well as many unique obstacles. 
+The **AEGIS Ind. Headquarters**, or **Headquarters**, is a large structure added in the [v0.19.0](https://github.com/HasangerGames/suroi/releases/tag/v0.19.0) "High Caliber Negotiations" update on September 22nd, 2024. It contains a unique melee weapon, the [Falchion](/weapons/melee/falchion), either the [DEagle](/weapons/guns/deagle) or [RSh-12](/weapons/guns/rsh12) as well as many unique obstacles. 
 
 # Location & Spawning
 The Headquarters attempts to spawn once per map, anywhere on the map.
@@ -54,9 +54,6 @@ In the black space between the Lounge and the Executive Office, there is a hidde
 - The Metal Detectors can be very useful for letting you know when players have entered/exited the building even if you haven't seen them.
   - You can place [C4](/weapons/throwables/c4) under the Metal Detectors to try and catch unsuspecting players. Simply trigger it when you hear the beep.
 - "The pass" (where food is taken from kitchen to the table), or the area between the Cafeteria's kitchen and the rest of the Cafeteria, can be fired through with guns as it is a gap in the wall. Many players don't realize this and think they are safe behind this "wall".
-
-# Trivia
-- The Headquarters was designed by platonthek, with editing by Solstice and eiπ
 
 # History
 - [v0.19.0](https://github.com/HasangerGames/suroi/releases/tag/v0.19.0)

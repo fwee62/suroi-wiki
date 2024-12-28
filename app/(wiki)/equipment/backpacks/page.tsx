@@ -66,9 +66,9 @@ export default function BackpackPage() {
                   src={getSuroiImageLink(getSuroiItem(ammo))}
                   alt={ammo}
                   key={ammo}
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
+                  width={32}
+                  height={32}
+                  className="w-10 h-10 ml-2"
                 />
               )
             )
@@ -103,7 +103,7 @@ export default function BackpackPage() {
           title="Backpack Throwable Capacity Statistics"
           header={[
             "Backpack",
-            ...["frag_grenade", "smoke_grenade", "confetti_grenade"].map(throwable => (
+            ...["frag_grenade", "smoke_grenade", "confetti_grenade", "c4"].map(throwable => (
               <Image
                 src={getSuroiImageLink(getSuroiItem(throwable))}
                 alt={throwable}
@@ -131,7 +131,8 @@ export default function BackpackPage() {
             </Fragment>,
             backpack.maxCapacity.frag_grenade.toString(),
             backpack.maxCapacity.smoke_grenade.toString(),
-            backpack.maxCapacity.confetti_grenade.toString()
+            backpack.maxCapacity.confetti_grenade.toString(),
+            backpack.maxCapacity.c4.toString()
           ])}
         />
         <h2>List of Backpacks</h2>
